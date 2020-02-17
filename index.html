@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<meta charset="UTF-8" />
+
+<head>
+  <style>
+    .finished {
+      text-decoration: line-through;
+    }
+    .doText {
+      cursor: default;
+      user-select: none;
+    }
+  </style>
+</head>
+<html>
+  <body>
+    <ul id="ul">
+      <li><span name="doingText" class="doText">test</span></li>
+      <li><span name="doingText" class="doText">test2</span></li>
+    </ul>
+  </body>
+</html>
+
+<script>
+  const ul = document.getElementById('ul');
+  var foo = document.getElementsByName('doingText');
+
+  const finishLine = e => {
+    const spenElement = e.currentTarget.querySelector('span.doText');
+
+    if (!spenElement.classList.value.match('finished')) {
+      spenElement.classList.add('finished');
+    } else {
+      spenElement.classList.remove('finished');
+    }
+  };
+
+  ul.addEventListener('click', finishLine);
+</script>
