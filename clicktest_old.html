@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<head>
+    <style>
+        .finished {
+            text-decoration: line-through;
+        }
+        .doText {
+            cursor: default;
+            user-select: none;
+        }
+    </style>
+</head>
+<html>
+
+<body>
+    <ul id="ul">
+        <li><span name="doingText" class="doText">test</span></li>
+    </ul>
+</body>
+
+</html>
+
+
+<script>
+
+    const ul = document.getElementById('ul');
+    var foo = document.getElementsByName('doingText');
+
+    ul.addEventListener('click', finishLine);
+    console.log(ul);
+
+    function finishLine(e) {
+        var targetSpan = e.target;
+        if (targetSpan.classList.contains('finished')) {
+            targetSpan.classList.remove('finished');
+        } else if (!targetSpan.classList.contains('finished')) {
+            targetSpan.classList.add('finished');
+        }
+    };
+
+</script>
